@@ -3,14 +3,13 @@
 from flask import Flask, render_template, request, url_for, redirect 
 # Mongoclient is used to create a mongodb client, so we can connect on the localhost 
 # with the default port
-import os
 from pymongo import MongoClient
 # ObjectId function is used to convert the id string to an objectid that MongoDB can understand
 from bson.objectid import ObjectId
 # Instantiate the Flask class by creating a flask application
 app = Flask(__name__)
 # Create the mongodb client
-client = MongoClient(os.environ.get('MONGO_URL', 'localhost'), 27017)
+client = MongoClient('localhost', 27017)
 # Get and Post Route
 @app.route("/", methods=('GET', 'POST'))
 def index():
